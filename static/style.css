@@ -1,0 +1,136 @@
+/* --------------------- */
+/* MAIN */
+/* --------------------- */
+
+body {
+    background-image: url("../static/HFIM_SiteBackground.jpg");
+    background-size: cover;
+}
+
+img {
+    width: auto;
+}
+
+/* --------------------- */
+/* TYPO */
+/* --------------------- */
+
+body {
+    color: #D6D6D6;
+}
+
+h1 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-shadow: 0px 2px #00032B;
+}
+
+h2 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    text-transform: uppercase;
+    text-shadow: 0px 2px #00032B;
+}
+
+a {
+    text-decoration: none !important;
+    color: #fff !important;
+    font-size: 1rem !important;
+}
+
+.raleway {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    color: #fff;
+    font-size: 1rem;
+        text-decoration: none;
+}
+
+.roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+.footertext {
+    font-size: 13px;
+}
+
+.footerlink {
+    font-family: 'Roboto', sans-serif;
+    color: #BC52F6;
+    font-size: 13px;
+}
+
+/* --------------------- */
+/* BUFFER */
+/* --------------------- */
+
+.buffer-large {
+    padding-top: 80px;
+}
+
+.buffer-med {
+    padding-top: 40px;
+}
+
+.buffer-small {
+    padding-top: 20px;
+}
+
+
+/* --------------------- */
+/* FLEX */
+/* --------------------- */
+
+.flex {
+    /* basic styling */
+    /*border: 1px solid #fff;*/
+
+    /* flexbox setup */
+    display: -webkit-flex;
+    -webkit-flex-direction: row;
+
+    display: flex;
+    flex-direction: row;
+}
+
+/* --------------------- */
+/* FURTHER CLASSES */
+/* --------------------- */
+
+.bar {
+    background-color: #1F1E26;
+}
+
+.ground {
+    background-color: #19181E;
+    height: 40px;
+}
+
+.dropdown {
+    background-color: #19181E;
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center;
+}
+
+.distanceblock {
+    margin-left: -15px;
+}
+
+.distancetext {
+    margin-top: 7px;
+}
+
+.saturn {
+    margin-left: -43px;
+}
+/* --------------------- */
+/* IDs */
+/* --------------------- */
+
+#erdBox {
+    border-right: 1px solid #D6D6D6;
+}

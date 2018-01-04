@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- load Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:200,400,800|Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="../02_Layout/Code/static/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row buffer-med">
+                <div class="col text-center">
+                    <h1>How Far Is Mars?</h1>
+                </div>
+            </div>
+            <div class="row buffer-med">
+                <div class="col text-center">
+                    <p>Die Darstellung der Planeten zeigt, wieviel Prozent ihrer maximalen Entfernung von der Erde der Himmelskörper zurückgelegt hat. bei 100% steht der Himmelskörper auf seiner Maximalen Entfernung zur Erde - bei 0% steht er an seinem erdnächsten Punkt. Der exakte Wert (die relative Distanz) lässt sich durch einen Klick auf den jeweiligen Planeten ermitteln. Daneben kann die aktuelle (zum Zeitpunkt des Seitenaufrufs) errechnete Entfernung des Himmelskörpers von der Erde in Kilometern abgelesen werden.</p>
+                </div>
+            </div>
+
+            <!-- Interesting Stuff begins here-->
+            <div class="row buffer-med">
+                <!-- Earth to the left-->
+                <div class="col-2 vertical-center" id="erdBox">
+                    <img class="img-fluid" src="../02_Layout/Code/static/HFIM_Earth.gif" alt="">
+                </div>
+
+                <!-- Other planets to the right-->
+                <div class="col-10">
+
+                    <!--- BEGIN ACCORDION -->
+                    <div class="panel-group" id="accordion">
+                        <!-- MERCURY -->
+                        <div class="panel panel-default">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse-mercury">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="flex ground vertical-center">
+                                            <div style="flex-grow:{{ DistRelList[2] }}" class="bar"></div>
+                                            <img src="../02_Layout/Code/static/HFIM_Mercury.gif" alt="" style="width:50px;">
+                                            <div style="flex-grow:{{ 100-DistRelList[2] }}"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 ground distanceblock">
+                                        <div class="distancetext">
+                                            <span class="raleway">MERKUR</span> <span class="roboto">{{ DistList[2] }}</span><span class="raleway"> km</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="row buffer-small collapse" id="collapse-mercury" style="padding:15px">
+                                <div class="col-12 dropdown flex" style="padding:0px">
+                                    <div class="col-3 text-center" style="padding:15px">
+                                        <img src="../02_Layout/Code/static/HFIM_Mercury_Dropdown.jpg" alt="">
+                                    </div>
+                                    <div class="col-9" style="padding:15px" >
+                                        <h2>MERKUR</h2>
+                                        <span class="roboto">
+                                            <b>Aktuelle Relative Distanz zur Erde</b> {{ DistRelList[2] }}%<br>
+                                            <b>Maximale Distanz zur Erde:</b> 221.853.642,25 km <br>
+                                            <b>Minimale Distanz zur Erde:</b> 77.342.099,15 km <br>
+                                            <b>Mittlere Bahngeschwindigkeit:</b> 47.36 km/s <br>
+                                            <b>Tageslänge:</b> 4222.6 h <br>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- VENUS -->
+                        <div class="panel panel-default">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse-venus">
+                                <div class="row buffer-small">
+                                    <div class="col-8">
+                                        <div class="flex ground vertical-center">
+                                            <div style="flex-grow:{{ DistRelList[8] }}" class="bar"></div>
+                                            <img src="../02_Layout/Code/static/HFIM_Venus.gif" alt="" style="width:50px;">
+                                            <div style="flex-grow:{{ 100-DistRelList[8] }}"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 ground distanceblock">
+                                        <div class="distancetext">
+                                            <span class="raleway">VENUS</span> <span class="roboto">{{ DistList[8] }}</span><span class="raleway"> km</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="row buffer-small collapse" id="collapse-venus" style="padding:15px">
+                                <div class="col-12 dropdown flex" style="padding:0px">
+                                    <div class="col-3 text-center" style="padding:15px">
+                                        <img src="../02_Layout/Code/static/HFIM_Venus_Dropdown.jpg" alt="">
+                                    </div>
+                                    <div class="col-9" style="padding:15px" >
+                                        <h2>VENUS</h2>
+                                        <span class="roboto">
+                                            <b>Aktuelle Relative Distanz zur Erde</b> {{ DistRelList[8] }}%<br>
+                                            <b>Maximale Distanz zur Erde:</b> 260.898.686,50 km <br>
+                                            <b>Minimale Distanz zur Erde:</b> 38.297.054,90 km <br>
+                                            <b>Mittlere Bahngeschwindigkeit:</b> 35.02 km/s <br>
+                                            <b>Tageslänge:</b> 2802.6 h <br>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- MARS -->
+                        <div class="panel panel-default">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse-mars">
+                                <div class="row buffer-small">
+                                    <div class="col-8">
+                                        <div class="flex ground vertical-center">
+                                            <div style="flex-grow:{{ DistRelList[1] }}" class="bar"></div>
+                                            <img src="../02_Layout/Code/static/HFIM_Mars.gif" alt="" style="width:50px;">
+                                            <div style="flex-grow:{{ 100-DistRelList[1] }}"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 ground distanceblock">
+                                        <div class="distancetext">
+                                            <span class="raleway">MARS</span> <span class="roboto">{{ DistList[1] }}</span><span class="raleway"> km</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="row buffer-small collapse" id="collapse-mars" style="padding:15px">
+                                <div class="col-12 dropdown flex" style="padding:0px">
+                                    <div class="col-3 text-center" style="padding:15px">
+                                        <img src="../02_Layout/Code/static/HFIM_Mars_Dropdown.jpg" alt="">
+                                    </div>
+                                    <div class="col-9" style="padding:15px" >
+                                        <h2>MARS</h2>
+                                        <span class="roboto">
+                                            <b>Aktuelle Relative Distanz zur Erde</b> {{ DistRelList[1] }}%<br>
+                                            <b>Maximale Distanz zur Erde:</b> 401.371.087,09 km <br>
+                                            <b>Minimale Distanz zur Erde:</b> 55.650.407,90 km <br>
+                                            <b>Mittlere Bahngeschwindigkeit:</b> 24.07 km/s <br>
+                                            <b>Tageslänge:</b> 24.66 h <br>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- JUPITER -->
+                        <div class="panel panel-default">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse-jupiter">
+                                <div class="row buffer-small">
+                                    <div class="col-8">
+                                        <div class="flex ground vertical-center">
+                                            <div style="flex-grow:{{ DistRelList[0] }}" class="bar"></div>
+                                            <img src="../02_Layout/Code/static/HFIM_Jupiter.gif" alt="" style="width:50px;">
+                                            <div style="flex-grow:{{ 100-DistRelList[0] }}"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 ground distanceblock">
+                                        <div class="distancetext">
+                                            <span class="raleway">JUPITER</span> <span class="roboto">{{ DistList[0] }}</span><span class="raleway"> km</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="row buffer-small collapse" id="collapse-jupiter" style="padding:15px">
+                                <div class="col-12 dropdown flex" style="padding:0px">
+                                    <div class="col-3 text-center" style="padding:15px">
+                                        <img src="../02_Layout/Code/static/HFIM_Jupiter_Dropdown.jpg" alt="">
+                                    </div>
+                                    <div class="col-9" style="padding:15px" >
+                                        <h2>JUPITER</h2>
+                                        <span class="roboto">
+                                            <b>Aktuelle Relative Distanz zur Erde</b> {{ DistRelList[0] }}%<br>
+                                            <b>Maximale Distanz zur Erde:</b> 968.047.821,30 km <br>
+                                            <b>Minimale Distanz zur Erde:</b> 588.518.023,33 km <br>
+                                            <b>Mittlere Bahngeschwindigkeit:</b> 13.06 km/s <br>
+                                            <b>Tageslänge:</b> 9.93 h <br>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SATURN -->
+                        <div class="panel panel-default">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse-saturn">
+                                <div class="row buffer-small">
+                                    <div class="col-8">
+                                        <div class="flex ground vertical-center">
+                                            <div style="flex-grow:{{ DistRelList[6] }}" class="bar"></div>
+                                            <img src="../02_Layout/Code/static/HFIM_Saturn.gif" alt="" class="saturn" style="height:50px; transform: rotate(-10deg);">
+                                            <div style="flex-grow:{{ 100-DistRelList[6] }}"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 ground distanceblock">
+                                        <div class="distancetext">
+                                            <span class="raleway">SATURN</span> <span class="roboto">{{ DistList[6] }}</span><span class="raleway"> km</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="row buffer-small collapse" id="collapse-saturn" style="padding:15px">
+                                <div class="col-12 dropdown flex" style="padding:0px">
+                                    <div class="col-3 text-center" style="padding:15px">
+                                        <img src="../02_Layout/Code/static/HFIM_Saturn_Dropdown.jpg" alt="">
+                                    </div>
+                                    <div class="col-9" style="padding:15px" >
+                                        <h2>SATURN</h2>
+                                        <span class="roboto">
+                                            <b>Aktuelle Relative Distanz zur Erde</b> {{ DistRelList[6] }}%<br>
+                                            <b>Maximale Distanz zur Erde:</b> 1.658.441.994,58 km <br>
+                                            <b>Minimale Distanz zur Erde:</b> 1.195.436.584,76 km <br>
+                                            <b>Mittlere Bahngeschwindigkeit:</b> 9.68 km/s <br>
+                                            <b>Tageslänge:</b> 10.66 h <br>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- URANUS -->
+                        <div class="panel panel-default">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse-uranus">
+                                <div class="row buffer-small">
+                                    <div class="col-8">
+                                        <div class="flex ground vertical-center">
+                                            <div style="flex-grow:{{ DistRelList[7] }}" class="bar"></div>
+                                            <img src="../02_Layout/Code/static/HFIM_Uranus.gif" alt="" style="width:50px;">
+                                            <div style="flex-grow:{{ 100-DistRelList[7] }}"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 ground distanceblock">
+                                        <div class="distancetext">
+                                            <span class="raleway">URANUS</span> <span class="roboto">{{ DistList[7] }}</span><span class="raleway"> km</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="row buffer-small collapse" id="collapse-uranus" style="padding:15px">
+                                <div class="col-12 dropdown flex" style="padding:0px">
+                                    <div class="col-3 text-center" style="padding:15px">
+                                        <img src="../02_Layout/Code/static/HFIM_Uranus_Dropdown.jpg" alt="">
+                                    </div>
+                                    <div class="col-9" style="padding:15px" >
+                                        <h2>URANUS</h2>
+                                        <span class="roboto">
+                                            <b>Aktuelle Relative Distanz zur Erde</b> {{ DistRelList[7] }}%<br>
+                                            <b>Maximale Distanz zur Erde:</b> 3.157.263.061,12 km <br>
+                                            <b>Minimale Distanz zur Erde:</b> 2.581.909.650,41 km <br>
+                                            <b>Mittlere Bahngeschwindigkeit:</b> 6.80 km/s <br>
+                                            <b>Tageslänge:</b> 17.24 h <br>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- NEPTUNE -->
+                        <div class="panel panel-default">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse-neptune">
+                                <div class="row buffer-small">
+                                    <div class="col-8">
+                                        <div class="flex ground vertical-center">
+                                            <div style="flex-grow:{{ DistRelList[4] }}" class="bar"></div>
+                                            <img src="../02_Layout/Code/static/HFIM_Neptune.gif" alt="" style="width:50px;">
+                                            <div style="flex-grow:{{ 100-DistRelList[4] }}"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 ground distanceblock">
+                                        <div class="distancetext">
+                                            <span class="raleway">NEPTUNE</span> <span class="roboto">{{ DistList[4] }}</span><span class="raleway"> km</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="row buffer-small collapse" id="collapse-neptune" style="padding:15px">
+                                <div class="col-12 dropdown flex" style="padding:0px">
+                                    <div class="col-3 text-center" style="padding:15px">
+                                        <img src="../02_Layout/Code/static/HFIM_Neptune_Dropdown.jpg" alt="">
+                                    </div>
+                                    <div class="col-9" style="padding:15px" >
+                                        <h2>NEPTUNE</h2>
+                                        <span class="roboto">
+                                            <b>Aktuelle Relative Distanz zur Erde</b> {{ DistRelList[4] }}%<br>
+                                            <b>Maximale Distanz zur Erde:</b> 4.687.350.082,64 km <br>
+                                            <b>Minimale Distanz zur Erde:</b> 4.305.875.512,36 km <br>
+                                            <b>Mittlere Bahngeschwindigkeit:</b> 5.43 km/s <br>
+                                            <b>Tageslänge:</b> 16.11 h <br>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- PLUTO -->
+                        <div class="panel panel-default">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse-pluto">
+                                <div class="row buffer-small">
+                                    <div class="col-8">
+                                        <div class="flex ground vertical-center">
+                                            <div style="flex-grow:{{ DistRelList[5] }}" class="bar"></div>
+                                            <img src="../02_Layout/Code/static/HFIM_Pluto.gif" alt="" style="width:50px;">
+                                            <div style="flex-grow:{{ 100-DistRelList[5] }}"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 ground distanceblock">
+                                        <div class="distancetext">
+                                            <span class="raleway">PLUTO</span> <span class="roboto">{{ DistList[5] }}</span><span class="raleway"> km</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="row buffer-small collapse" id="collapse-pluto" style="padding:15px">
+                                <div class="col-12 dropdown flex" style="padding:0px">
+                                    <div class="col-3 text-center" style="padding:15px">
+                                        <img src="../02_Layout/Code/static/HFIM_Pluto_Dropdown.jpg" alt="">
+                                    </div>
+                                    <div class="col-9" style="padding:15px" >
+                                        <h2>PLUTO</h2>
+                                        <span class="roboto">
+                                            <b>Aktuelle Relative Distanz zur Erde</b> {{ DistRelList[5] }}% <br>
+                                            <b>Maximale Distanz zur Erde:</b> 7.533.299.974,84 km <br>
+                                            <b>Minimale Distanz zur Erde:</b> 4.293.758.084,83 km <br>
+                                            <b>Mittlere Bahngeschwindigkeit:</b> 4.67 km/s <br>
+                                            <b>Tageslänge:</b> 153.28 h <br>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- MOON -->
+                        <div class="panel panel-default">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse-moon">
+                                <div class="row buffer-small">
+                                    <div class="col-8">
+                                        <div class="flex ground vertical-center">
+                                            <div style="flex-grow:{{ DistRelList[3] }}" class="bar"></div>
+                                            <img src="../02_Layout/Code/static/HFIM_Moon.gif" alt="" style="width:50px;">
+                                            <div style="flex-grow:{{ 100-DistRelList[3] }}"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 ground distanceblock">
+                                        <div class="distancetext">
+                                            <span class="raleway">MOON</span> <span class="roboto">{{ DistList[3] }}</span><span class="raleway"> km</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="row buffer-small collapse" id="collapse-moon" style="padding:15px">
+                                <div class="col-12 dropdown flex" style="padding:0px">
+                                    <div class="col-3 text-center" style="padding:15px">
+                                        <img src="../02_Layout/Code/static/HFIM_Mercury_Dropdown.png" alt="">
+                                    </div>
+                                    <div class="col-9" style="padding:15px" >
+                                        <h2>MOON</h2>
+                                        <span class="roboto">
+                                            <b>Aktuelle Relative Distanz zur Erde</b> {{ DistRelList[3] }}% <br>
+                                            <b>Maximale Distanz zur Erde:</b> 363.300,00 km <br>
+                                            <b>Minimale Distanz zur Erde:</b> 384.400,00 km <br>
+                                            <b>Mittlere Bahngeschwindigkeit:</b> 1.022 km/s <br>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div> <!--- END ACCORDION -->
+
+                    </div>
+                </div>
+
+                <!-- Footer -->
+
+                <div class="row buffer-large">
+                    <div class="col-12 text-center">
+                        <p class="footertext">Made with 💜 by BLK (2017) <br>
+                            Illustrations by <a href="http://www.stephanlorse.eu" target="_blank"> <span class="footerlink">Stephan Lorse</span></a><br>
+                            Development by <a href="http://www.tom-kirchgaessner.de" target="_blank"><span class="footerlink">Tom Kirchgäßner</span></a></p>
+                            <a href="sources" target="_blank"><span class="footerlink">QUELLEN UND CREDITS</span></a></p>
+                        </div>
+                    </div>
+                    <!-- load depending Bootstrap JS-->
+                    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+                </body>
+            </html>
