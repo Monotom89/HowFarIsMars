@@ -2,6 +2,7 @@
 import numpy
 import time
 import collections
+import locale
 from skyfield.api import load
 
 ts = load.timescale()
@@ -32,7 +33,7 @@ def DistanceList():
     #returns a list of distances of the celestials
     DistanceList = []
     for body in collections.OrderedDict(sorted(celestialsDict.items(), key=lambda t: t[0])):
-        DistanceList.append(DistanceToEarth(collections.OrderedDict(sorted(celestialsDict.items(), key=lambda t: t[0]))[body][0]))
+        DistanceList.append('{0:,}'.format(DistanceToEarth(collections.OrderedDict(sorted(celestialsDict.items(), key=lambda t: t[0]))[body][0])))
     return DistanceList
 
 def DistanceRelation(body):
@@ -50,5 +51,7 @@ def DistanceRelationList():
 #print(DistanceToEarth(celestialsDict["Mars"][0]))
 #print(celestialsDict)
 #print(collections.OrderedDict(sorted(celestialsDict.items(), key=lambda t: t[0])))
-#print(DistanceList())
+locale.setlocale(locale.LC_ALL, 'de_DE.utf-8')
+
+print(DistanceList())
 #print(DistanceRelationList())
